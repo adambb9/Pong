@@ -53,13 +53,19 @@ while game_is_on:
     time.sleep(0.1)
     ball.move_ball()
 
+    print(f"Paddle1 position: {paddle1.pos()}")
+    print(f"Paddle2 position: {paddle2.pos()}")
+    print(f"Ball position: {ball.pos()}")
     #detect ball collision with wall
     if ball.ycor() > 290 or ball.ycor() < -290:
         ball.ball_bounce()
         
 
 
-    #detect ball collision
+    #detect ball collision with paddle
+    if ball.distance(paddle1) < 10 or ball.distance(paddle2) < 10:
+        ball.ball_bounce()
+
     
     
 

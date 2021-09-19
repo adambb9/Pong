@@ -21,11 +21,9 @@ class Ball(Turtle):
         self.forward(20)
 
     def ball_bounce(self):
-        self.forward(0)
         current_heading = self.heading()
         angle = (180 - current_heading) + 180
         self.setheading(angle)
-        self.forward(20)
         
 
 
