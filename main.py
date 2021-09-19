@@ -2,6 +2,7 @@
 from turtle import Screen, Turtle
 import time
 from paddle import Paddle
+from ball import Ball
 
 PLAYER1 = -450
 PLAYER2 = 450
@@ -34,7 +35,7 @@ paddle1 = Paddle(PLAYER1)
 
 paddle2 = Paddle(PLAYER2)
 
-
+ball = Ball()
 
 screen.listen()
 screen.onkey(key="w", fun=paddle1.move_up)
