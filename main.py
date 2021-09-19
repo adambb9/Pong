@@ -36,6 +36,7 @@ paddle1 = Paddle(PLAYER1)
 paddle2 = Paddle(PLAYER2)
 
 ball = Ball()
+ball.initialise_ball()
 
 screen.listen()
 screen.onkey(key="w", fun=paddle1.move_up)
@@ -46,9 +47,19 @@ screen.onkey(key="Down", fun=paddle2.move_down)
 
 game_is_on = True
 
+
 while game_is_on:
     screen.update()
-    time.sleep(0.2)
+    time.sleep(0.1)
+    ball.move_ball()
+
+    #detect ball collision with wall
+    if ball.ycor() > 290 or ball.ycor() < -290:
+        ball.ball_bounce()
+        
+
+
+    #detect ball collision
     
     
 
