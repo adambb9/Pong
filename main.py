@@ -1,7 +1,10 @@
 # Lets write the pong game
 from turtle import Screen, Turtle
 import time
+from paddle import Paddle
 
+XPOS1 = -450
+XPOS2 = 450
 
 
 
@@ -11,8 +14,9 @@ screen.bgcolor("black")
 screen.title("Pong 2021")
 screen.tracer(0)
 
+
 border = Turtle()
-#border.hideturtle()
+border.hideturtle()
 border.penup()
 border.color("white")
 border.pensize(5)
@@ -26,6 +30,11 @@ for i in range(20):
 
 
 
+paddle1 = Paddle(XPOS1)
+
+paddle2 = Paddle(XPOS2)
+
+#paddle1.build_paddle()
 
 
 #screen.listen()
@@ -35,11 +44,11 @@ for i in range(20):
 #screen.onkey(key="Right", fun=snake.right)
 
 
-#game_is_on = True
+game_is_on = True
 
-#while game_is_on:
-    #screen.update()
-    #time.sleep(0.2)
+while game_is_on:
+    screen.update()
+    time.sleep(0.2)
     
 
 
