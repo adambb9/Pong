@@ -18,6 +18,9 @@ class Paddle(Turtle):
         self.penup()
         self.shapesize(5, 1, 1)
         self.color("white")
+        self.goto(self.xpos, 0)
+
+    
     
     def move_up(self):
         current_ypos = self.ycor()

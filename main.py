@@ -3,8 +3,8 @@ from turtle import Screen, Turtle
 import time
 from paddle import Paddle
 
-XPOS1 = -450
-XPOS2 = 450
+PLAYER1 = -450
+PLAYER2 = 450
 
 
 
@@ -30,18 +30,17 @@ for i in range(20):
 
 
 
-paddle1 = Paddle(XPOS1)
+paddle1 = Paddle(PLAYER1)
 
-paddle2 = Paddle(XPOS2)
-
-#paddle1.build_paddle()
+paddle2 = Paddle(PLAYER2)
 
 
-#screen.listen()
-#screen.onkey(key="Up", fun=snake.up)
-#screen.onkey(key="Down", fun=snake.down)
-#screen.onkey(key="Left", fun=snake.left)
-#screen.onkey(key="Right", fun=snake.right)
+
+screen.listen()
+screen.onkey(key="w", fun=paddle1.move_up)
+screen.onkey(key="s", fun=paddle1.move_down)
+screen.onkey(key="Up", fun=paddle2.move_up)
+screen.onkey(key="Down", fun=paddle2.move_down)
 
 
 game_is_on = True
@@ -50,8 +49,7 @@ while game_is_on:
     screen.update()
     time.sleep(0.2)
     
-
-
+    
 
 
 screen.exitonclick()
