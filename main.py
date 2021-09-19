@@ -61,13 +61,13 @@ while game_is_on:
 
     if ball.xcor() < 0:
         for point in paddle1.edges:
-            if ball.distance(paddle1.front_edge, point) < 20:
+            if ball.distance(paddle1.xpos, point) < 20:
                 ball.ball_bounce_off_paddle()
 
     
     if ball.xcor() > 0:
         for point in paddle2.edges:
-            if ball.distance(paddle2.front_edge, point) < 20:
+            if ball.distance(paddle2.xpos, point) < 20:
                 ball.ball_bounce_off_paddle()
 
     #for coordinate in paddle2.edges:
