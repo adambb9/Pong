@@ -35,6 +35,7 @@ paddle1 = Paddle(PLAYER1)
 
 paddle2 = Paddle(PLAYER2)
 
+
 ball = Ball()
 ball.initialise_ball()
 
@@ -50,21 +51,28 @@ game_is_on = True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.1)
+    time.sleep(0.09)
     ball.move_ball()
 
-    print(f"Paddle1 position: {paddle1.pos()}")
-    print(f"Paddle2 position: {paddle2.pos()}")
-    print(f"Ball position: {ball.pos()}")
+
     #detect ball collision with wall
     if ball.ycor() > 290 or ball.ycor() < -290:
         ball.ball_bounce()
-        
 
+    if ball.xcor() < 0:
+        for point in paddle1.edges:
+            if ball.distance(paddle1.front_edge, point) < 20:
+                ball.ball_bounce_off_paddle()
 
-    #detect ball collision with paddle
-    if ball.distance(paddle1) < 10 or ball.distance(paddle2) < 10:
-        ball.ball_bounce()
+    
+    if ball.xcor() > 0:
+        for point in paddle2.edges:
+            if ball.distance(paddle2.front_edge, point) < 20:
+                ball.ball_bounce_off_paddle()
+
+    #for coordinate in paddle2.edges:
+        #if ball.distance(coordinate) < 30:
+            #ball.ball_bounce()
 
     
     

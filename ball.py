@@ -24,6 +24,12 @@ class Ball(Turtle):
         current_heading = self.heading()
         angle = (180 - current_heading) + 180
         self.setheading(angle)
+    
+    def ball_bounce_off_paddle(self):
+        current_heading = self.heading()
+        angle = (180 - current_heading)
+        self.setheading(angle)
+
         
 
 
