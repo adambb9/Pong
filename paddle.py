@@ -49,7 +49,7 @@ class Paddle(Turtle):
 
     def paddle_edges(self):
         self.edges = []
-        for i in range(self.bottom, self.top, 5):
+        for i in range((self.bottom - 10), (self.top + 10), 1):
             self.edges.append(i)
 
     #def translate_edge(self):

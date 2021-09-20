@@ -55,28 +55,44 @@ game_is_on = True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.09)
+    time.sleep(0.1)
     ball.move_ball()
 
+    #check if anyone has enough points to win the game
+    if scoreboard.player1score == 3 or scoreboard.player2score == 3:
+        scoreboard.game_over()
+        game_is_on = False
 
-    #detect ball collision with wall
-    if ball.ycor() > 290 or ball.ycor() < -290:
+
+    #detect ball collision with wall and bounce
+    elif ball.ycor() > 290 or ball.ycor() < -290:
         ball.ball_bounce()
 
-    elif ball.xcor() < -500:
-        scoreboard.
-
-
+    #check if ball is on left side
+    #detect collision with paddle1
+    #check if ball goes out
+    #give points to player and restart game
     elif ball.xcor() < 0:
         for point in paddle1.edges:
-            if ball.distance(paddle1.front_edge, point) < 15:
+            if ball.distance(paddle1.front_edge, point) < 20:
                 ball.ball_bounce_off_paddle()
+        if ball.xcor() < -500:
+            scoreboard.increase_player2_score(1)
+            ball.restart_ball()
 
-    
+    #check if ball is on right side
+    #detect collision with paddle2
+    #check if ball goes out
+    #give points to player and restart game
     elif ball.xcor() > 0:
         for point in paddle2.edges:
-            if ball.distance(paddle2.front_edge, point) < 15:
+            if ball.distance(paddle2.front_edge, point) < 20:
                 ball.ball_bounce_off_paddle()
+        if ball.xcor() > 500:
+            scoreboard.increase_player1_score(1)
+            ball.restart_ball()
+
+    
 
     
 

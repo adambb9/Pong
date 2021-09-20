@@ -17,6 +17,10 @@ class Ball(Turtle):
         random_heading = random.randint(0, 360)
         self.setheading(random_heading)
 
+    def restart_ball(self):
+        self.goto(0,0)
+        self.initialise_ball()
+
     def move_ball(self):
         self.forward(20)
 
