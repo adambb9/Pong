@@ -3,6 +3,7 @@ from turtle import Screen, Turtle
 import time
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 
 PLAYER1 = -450
 PLAYER2 = 450
@@ -37,7 +38,10 @@ paddle2 = Paddle(PLAYER2)
 
 
 ball = Ball()
+
 ball.initialise_ball()
+
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(key="w", fun=paddle1.move_up)
@@ -59,6 +63,10 @@ while game_is_on:
     if ball.ycor() > 290 or ball.ycor() < -290:
         ball.ball_bounce()
 
+    elif ball.xcor() < -500:
+        scoreboard.
+
+
     elif ball.xcor() < 0:
         for point in paddle1.edges:
             if ball.distance(paddle1.front_edge, point) < 15:
@@ -69,6 +77,8 @@ while game_is_on:
         for point in paddle2.edges:
             if ball.distance(paddle2.front_edge, point) < 15:
                 ball.ball_bounce_off_paddle()
+
+    
 
     
     
